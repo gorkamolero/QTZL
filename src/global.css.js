@@ -39,7 +39,7 @@ export default createGlobalStyle`
 
   body {
     font-family: var(--fontFamily);
-    line-height: 1;
+    line-height: normal;
     font-size: 1.6rem;
     color: #000;
     background-color: #fff;
@@ -95,4 +95,10 @@ export default createGlobalStyle`
   p {
     margin-bottom: 2rem;
   }
+
+  .overlayed {
+    background-color: #000;
+    color: #fff;
+  }
+
 `
