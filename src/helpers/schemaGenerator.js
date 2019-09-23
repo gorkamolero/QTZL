@@ -9,7 +9,7 @@ export default ({
   siteTitle,
   pageTitleFull,
 }) => {
-  const isSubPage = pageTitle && location.pathname !== '/';
+  const isSubPage = pageTitle && location.pathname !== '/'
 
   let schema = [
     {
@@ -19,7 +19,7 @@ export default ({
       name: pageTitle || siteTitle,
       alternateName: pageTitleFull,
     },
-  ];
+  ]
 
   if (isSubPage) {
     schema.push({
@@ -43,8 +43,8 @@ export default ({
           },
         },
       ],
-    });
+    })
   }
 
-  return schema;
-};
+  return schema
+}
