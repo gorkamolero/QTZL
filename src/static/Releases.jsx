@@ -1,11 +1,12 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-// import SEO from "components/common/SEO"
+import Head from 'components/head'
+import ListItem from 'components/list-item'
 
 const Releases = () => {
-  const { airtable } = useStaticQuery(graphql`
+  const { qtzlctl } = useStaticQuery(graphql`
     query {
-      airtable: allAirtable(
+      qtzlctl: allAirtable(
         filter: { table: { eq: "Releases" } },
         sort: {
           fields: [data___Notation],
@@ -17,8 +18,8 @@ const Releases = () => {
             id
             data {
               Name
-              Notation
-              Artist
+              Release
+              Artist_Name
             }
           }
         }
@@ -27,30 +28,27 @@ const Releases = () => {
   `)
 
   return (
-    <div>
-      {/* <SEO title="Scenes" /> */}
-      <h1>Static Releases</h1>
+    <>
+      <Head pageTitle="Releases" />
       <div>
-        {airtable.edges.map(({
+        {qtzlctl.edges.map(({
           node: {
             id,
             data: {
-              Notation,
+              Release,
               Name,
-              Artist
+              Artist_Name
             }
           }
         }) => (
-          <div key={id}>
-            <Link to={id}>
-              <h3>{Artist}</h3>
-            <h2>{Notation} - {Name}</h2>
-              
-            </Link>
-          </div>
+          <ListItem key={id}>
+            <Link to={Release}>
+              <h2>{Release} - {Artist_Name} - {Name}</h2>
+              </Link>
+          </ListItem>
         ))}
       </div>
-    </div>
+    </>
   )
 }
 

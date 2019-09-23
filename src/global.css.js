@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 import { accent } from 'constants/theme'
 
 export default createGlobalStyle`
+  :root {
+    --fontFamily: 'Dosis', sans-serif;
+    --accent: ${accent};
+  }
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -34,7 +38,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: var(--fontFamily);
     line-height: 1;
     font-size: 1.6rem;
     color: #000;
@@ -68,7 +72,7 @@ export default createGlobalStyle`
   }
 
   a {
-    color: ${accent};
+    color: var(--accent);
   }
 
   pre {
@@ -79,7 +83,7 @@ export default createGlobalStyle`
     font-size: 85%;
     line-height: 1.45;
     border-radius: 5px;
-    color: ${accent};
+    color: var(--accent);
     border: 1px solid #ddd;
     font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
   }
