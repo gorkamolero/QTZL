@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import posed from 'react-pose'
 import { Container } from './header.css'
-import Title from 'components/title'
+import Logo from 'components/logo'
 import Nav from 'components/header/nav'
 
 // Example of a component-specific page transition
@@ -26,7 +26,7 @@ const Header = ({ title }) => (
   <AnimatedContainer>
     <Container>
       <Link to="/">
-        <Title as="h1">{title}</Title>
+        <Logo />
       </Link>
 
       <Nav />
