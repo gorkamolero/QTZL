@@ -27,7 +27,6 @@ const Header = ({ title }) => (
     <Container>
       <Link to="/">
         <Logo />
-        <span>Work in Progress</span>
       </Link>
 
       <Nav />
