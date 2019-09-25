@@ -45,7 +45,7 @@ export const Item = styled.article`
     transition: width 1s ease;
     width: 0;
     height: 1px;
-    background: var(--accent);
+    background: var(--dark);
     position: absolute;
     bottom: 0; left: 0;
   }

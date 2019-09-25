@@ -1,11 +1,19 @@
 import { createGlobalStyle } from 'styled-components'
-import { accent } from 'constants/theme'
+import { accent, light, dark, darkest, bgLight, bgDark } from 'constants/theme'
 
 export default createGlobalStyle`
   :root {
     --fontFamily: 'Dosis', sans-serif;
     --accent: ${accent};
+    --light: ${light};
+    --dark: ${dark};
+    --darkest: ${darkest};
+    --bgLight: ${bgLight};
+    --bgDark: ${bgDark};
+    --color: white;
+    --borderWidth: 1rem;
   }
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -34,15 +42,21 @@ export default createGlobalStyle`
   }
 
   html {
+    box-sizing: border-box;
     font-size: 62.5%;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
   }
 
   body {
     font-family: var(--fontFamily);
     line-height: normal;
     font-size: 1.6rem;
-    color: #000;
-    background-color: #fff;
+    color: var(--color);
+    background: var(--primary);
+    background: linear-gradient(-207deg, var(--bgLight) 0%, var(--bgDark) 100%);
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -50,6 +64,17 @@ export default createGlobalStyle`
     -webkit-font-feature-settings: "pnum";
     font-feature-settings: "pnum";
     font-variant-numeric: proportional-nums;
+
+    &:after {
+      content: '';
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      width: 100%
+      height: 100%;
+      z-index: 999;
+      pointer-events: none;
+      border: var(--borderWidth) solid var(--darkest);
+    }
   }
 
   ol, ul {
@@ -72,7 +97,7 @@ export default createGlobalStyle`
   }
 
   a {
-    color: var(--accent);
+    color: var(--darkest);
   }
 
   pre {

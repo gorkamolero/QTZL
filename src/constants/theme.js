@@ -1,1 +1,7 @@
-export const accent = '#f90000'
+export const accent = '#445a9d'
+export const primary = '#e8b954'
+export const light = '#ffeb84'
+export const dark = '#b38924'
+export const darkest = '#5b420c'
+export const bgLight = 'rgba(232,185,84,1)'
+export const bgDark = 'rgba(138,94,2,1)'
