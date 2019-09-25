@@ -4,15 +4,15 @@ import MEDIA from 'helpers/mediaTemplates'
 export const Item = styled.article`
   display: block;
   padding: 1.618rem 0;
-  border-bottom: 1px solid transparent;
-  font-weight: ${({ size }) => () => {
+  padding: ${({size}) => () => {
     switch (size) {
-      case 'large':
-        return '400'
+      case 'small':
+        return '1rem'
       default:
-        return '500'
+        return '1.618rem'
     }
   }};
+  border-bottom: 1px solid transparent;
   font-size: ${({ size }) => () => {
     switch (size) {
       case 'large':
@@ -37,6 +37,7 @@ export const Item = styled.article`
   a {
     text-decoration: none;
     display: block;
+    color: var(--darkest);
   }
 
   position: relative;

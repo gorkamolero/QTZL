@@ -66,8 +66,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `dosis\:300,400,700`,
-          `didact gothic`
+          `dosis\:300,500,`,
+          `spectral\:300,500`
         ]
       },
     }

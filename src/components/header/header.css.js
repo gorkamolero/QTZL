@@ -7,10 +7,11 @@ export const Container = styled.header`
   padding: 2rem 4rem;
 
   a {
-    color: var(--color);
+    color: var(--color-trans);
     transition: color 0.2s ease;
     text-decoration: none;
 
-    &:hover { color: inherit; }
+    &:hover { color: var(--color); }
+    &[aria-current] { font-weight: 400; }
   }
 `

@@ -3,7 +3,9 @@ import { accent, light, dark, darkest, bgLight, bgDark } from 'constants/theme'
 
 export default createGlobalStyle`
   :root {
-    --fontFamily: 'Dosis', sans-serif;
+    --fontFamilyTitles: 'spectral', serif;
+    --fontFamilyBody: 'dosis', sans-serif;
+    --fontWeight: lighter;
     --accent: ${accent};
     --light: ${light};
     --dark: ${dark};
@@ -11,6 +13,7 @@ export default createGlobalStyle`
     --bgLight: ${bgLight};
     --bgDark: ${bgDark};
     --color: white;
+    --color-trans: rgba(255, 255, 255, .7);
     --borderWidth: 1rem;
   }
 
@@ -44,14 +47,21 @@ export default createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%;
+    min-height: 100%;
   }
 
   *, *:before, *:after {
     box-sizing: inherit;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    /* font-family: var(--fontFamilyTitles); */
+  }
+
   body {
-    font-family: var(--fontFamily);
+    font-family: var(--fontFamilyBody);
+    font-weight: var(--fontWeight);
     line-height: normal;
     font-size: 1.6rem;
     color: var(--color);
@@ -97,7 +107,8 @@ export default createGlobalStyle`
   }
 
   a {
-    color: var(--darkest);
+    color: var(--white);
+    .index & { color: var(--darkest) }
   }
 
   pre {

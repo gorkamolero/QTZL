@@ -4,13 +4,10 @@ import Head from 'components/head'
 import ListItem from 'components/list-item'
 import Layout from 'components/layout'
 import Box from 'components/box'
-import Title from 'components/title'
 
 const Artists = () => (
   <Layout>
     <Box>
-      <Title as="h2" size="large">Artists</Title>
-
       <ArtistList />
     </Box>
   </Layout>
@@ -42,7 +39,7 @@ const ArtistList = () => {
   return (
     <>
       <Head pageTitle="Releases" />
-      <div>
+      <>
         {qtzlctl.edges.map(({
           node: {
             id,
@@ -53,14 +50,14 @@ const ArtistList = () => {
           }
         }) => {
           if(Releases !== null) return (
-            <ListItem key={id}>
+            <ListItem size="small" key={id}>
               <Link to={`/artists/${Name}`}>
                 <h2>{Name}</h2>
               </Link>
             </ListItem>
           )
         })}
-      </div>
+      </>
     </>
   )
 }
