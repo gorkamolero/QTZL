@@ -15,5 +15,23 @@
     "title": "Intersection Observer",
     "copy": "Including a polyfill for Safari.",
     "image": "../images/gallery/intersection-observer.jpg"
-  }]
+  }],
+  "links": [
+    {
+      "Name": "SoundCloud",
+      "URL": "https://soundcloud.com/qtzlctl"
+    },
+    {
+      "Name": "Instagram",
+      "URL": "https://instagram.com/qtzl_music"
+    },
+    {
+      "Name": "YouTube",
+      "URL": "https://www.youtube.com/user/QTZLCTL2014"
+    },
+    {
+      "Name": "Email",
+      "URL": "mailto:qtzlctl2014@gmail.com"
+    }
+  ]
 }

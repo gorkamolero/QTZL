@@ -15,6 +15,8 @@ export default createGlobalStyle`
     --color: white;
     --color-trans: rgba(255, 255, 255, .7);
     --borderWidth: 1rem;
+    --readable: 60ch;
+    --siteBorder: var(--darkest);
   }
 
   html, body, div, span, applet, object, iframe,
@@ -75,7 +77,20 @@ export default createGlobalStyle`
     font-feature-settings: "pnum";
     font-variant-numeric: proportional-nums;
 
-    &:after {
+    border-left: var(--borderWidth) solid var(--siteBorder);
+    border-right: var(--borderWidth) solid var(--siteBorder);
+    &:before, &:after {
+      content: "";
+      position: fixed;
+      background: var(--siteBorder);
+      left: 0;
+      right: 0;
+      height: var(--borderWidth);
+      z-index: 9999999999;
+    }
+    &:before { top: 0; }
+    &:after { bottom: 0; }
+    /* &:after {
       content: '';
       position: fixed;
       top: 0; right: 0; bottom: 0; left: 0;
@@ -84,7 +99,7 @@ export default createGlobalStyle`
       z-index: 999;
       pointer-events: none;
       border: var(--borderWidth) solid var(--darkest);
-    }
+    } */
   }
 
   ol, ul {
@@ -136,5 +151,7 @@ export default createGlobalStyle`
     background-color: #000;
     color: #fff;
   }
-
+  .read {
+    max-width: var(--readable);
+  }
 `

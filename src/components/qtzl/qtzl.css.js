@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
+import ReactPlayer from 'react-player'
+
+export const Player = styled(ReactPlayer)`
+  max-width: 100%;
+  @media (max-width: 640px) { width: 100% !important; }
+  @media (min-width: 768px) {
+    opacity: .5;
+    transition: opacity .25s ease;
+    &:hover { opacity: 1 }
+  }
+`
 
 export const Logo = styled('h1')`
   font-size: 1.6em;

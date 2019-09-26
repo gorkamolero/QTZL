@@ -11,7 +11,7 @@ const ListItem = ({ children, as = 'span', size }) => {
 }
 
 Item.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired,
   size: PropTypes.oneOf(['large']),
 }
 

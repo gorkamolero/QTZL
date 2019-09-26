@@ -6,6 +6,7 @@ import Title from 'components/title'
 import { SuperFooter } from 'components/qtzl/qtzl.css'
 import { graphql } from 'gatsby'
 import Releases from 'static/Releases'
+import Links from 'static/Links'
 
 const Index = ({ data }) => (
   <Layout className="index">
@@ -15,6 +16,8 @@ const Index = ({ data }) => (
       </Title>
 
       <Releases />
+
+      <Links links={data.homeJson.links} />
 
       <SuperFooter>
         <small>
@@ -53,6 +56,10 @@ export const query = graphql`
           html
           rawMarkdownBody
         }
+      }
+      links {
+        Name
+        URL
       }
     }
   }

@@ -14,7 +14,7 @@ const Artist = ({data: {airtable: {data: {
   Gallery,
 }}}}) => (
   <Layout>
-    <Box>
+    <Box className="read">
       <Title as="h1" size="large">{Name}</Title>
 
       <ReactMarkdown source={BIO}/>

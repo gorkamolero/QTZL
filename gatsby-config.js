@@ -70,6 +70,7 @@ module.exports = {
           `spectral\:300,500`
         ]
       },
-    }
+    },
+    'gatsby-plugin-extract-image-colors'
   ],
 };

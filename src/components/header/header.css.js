@@ -14,4 +14,13 @@ export const Container = styled.header`
     &:hover { color: var(--color); }
     &[aria-current] { font-weight: 400; }
   }
+
+  filter: ${({ variant }) => () => {
+    switch (variant) {
+      case 'dark':
+        return 'invert(1)'
+      default:
+        return 'none'
+    }
+  }};
 `

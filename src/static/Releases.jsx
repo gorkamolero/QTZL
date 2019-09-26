@@ -44,7 +44,7 @@ const Releases = () => {
           <ListItem key={id}>
             <Link to={`/releases/${Release}`}>
               <h2>{Release} - {Artist_Name} - {Name}</h2>
-              </Link>
+            </Link>
           </ListItem>
         ))}
       </div>
