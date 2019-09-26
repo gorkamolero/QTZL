@@ -8,30 +8,25 @@ import Title from 'components/title'
 import BackgroundImage from 'gatsby-background-image'
 import Overlay from 'components/overlay'
 import { Player } from 'components/qtzl/qtzl.css'
-import {darkest} from 'constants/theme'
+import { darkest } from 'constants/theme'
 
-
-const Release = ({
-  data: {
-    airtable: {
-      data: {
-        Info,
-        Name,
-        Notation,
-        SoundCloud,
-        Release,
-        Video,
-        Background
-      }
-    }
-  }
-}) => {
-
+const Release = ({ data }) => {
+  const { Info, Name, Notation, SoundCloud, Release, Video, Background } = data.airtable.data
   useEffect(() => {
-    if(!Background || !Background.localFiles || !Background.localFiles[0].colors) return
-    document.documentElement.style.setProperty('--siteBorder', Background.localFiles[0].colors.vibrant);
+    if (
+      !Background ||
+      !Background.localFiles ||
+      !Background.localFiles[0].colors
+    )
+      return
+    document.documentElement.style.setProperty(
+      '--siteBorder',
+      Background.localFiles[0].colors.vibrant
+    )
 
-    return () => { document.documentElement.style.setProperty('--siteBorder', darkest); }
+    return () => {
+      document.documentElement.style.setProperty('--siteBorder', darkest)
+    }
   }, [])
 
   return (
@@ -44,14 +39,17 @@ const Release = ({
     >
       <Overlay />
       <Layout variant="dark">
-
         <Box>
           <div className="read">
-            <Title as="h2" size="large">{Name}</Title>
+            <Title as="h2" size="large">
+              {Name}
+            </Title>
 
-            <ReactMarkdown source={Info}/>
-            { Video && <Player className={Player} url={Video} playing/> }
-            { SoundCloud && (<Player className={Player} url={SoundCloud} playing />) }
+            <ReactMarkdown source={Info} />
+            {Video && <Player className={Player} url={Video} playing />}
+            {SoundCloud && (
+              <Player className={Player} url={SoundCloud} playing />
+            )}
           </div>
         </Box>
       </Layout>
@@ -63,7 +61,7 @@ export default Release
 
 export const pageQuery = graphql`
   query releaseItemQuery($slug: String!) {
-    airtable(table: {eq: "Releases"}, data: {Release: {eq: $slug}}) {
+    airtable(table: { eq: "Releases" }, data: { Release: { eq: $slug } }) {
       data {
         Info
         Name

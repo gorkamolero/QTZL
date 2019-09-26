@@ -21,15 +21,28 @@ const Index = ({ data }) => (
 
       <SuperFooter>
         <small>
-          <span style={inverseDragon} role="img" aria-label="fuck accesibility">🐉</span>
+          <span style={inverseDragon} role="img" aria-label="fuck accesibility">
+            🐉
+          </span>
           ©QTZL by QTZLCTL 2019
-          <span role="img" aria-label="fuck accesibility">🐉</span>
+          <span role="img" aria-label="fuck accesibility">
+            🐉
+          </span>
         </small>
-        <br/>
+        <br />
         <small>
-          WORK IN PROGRESS <br/>
-          Designed by <a href="https://blitz.media" rel="noopener noreferrer" target="_blank">Blitz!</a>
-          <span role="img" aria-label="fuck accesibility">⚡️</span>
+          WORK IN PROGRESS <br />
+          Designed by{' '}
+          <a
+            href="https://blitz.media"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Blitz!
+          </a>
+          <span role="img" aria-label="fuck accesibility">
+            ⚡️
+          </span>
         </small>
       </SuperFooter>
     </Box>
@@ -42,7 +55,7 @@ Index.propTypes = {
 
 const inverseDragon = {
   transform: 'scaleX(-1)',
-  display: 'inline-block'
+  display: 'inline-block',
 }
 
 export default Index

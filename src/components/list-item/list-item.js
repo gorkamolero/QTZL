@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import { Item } from './list-item.css'
 
 const ListItem = ({ children, as = 'span', size }) => {
-  return (
-    <Item size={size}>
-      {children}
-    </Item>
-  )
+  return <Item size={size}>{children}</Item>
 }
 
 Item.propTypes = {

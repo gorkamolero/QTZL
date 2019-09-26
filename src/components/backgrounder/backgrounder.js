@@ -1,8 +1,8 @@
 /* global window */
-import React from 'react';
-import styled from 'styled-components';
-import Media from 'react-media';
-import ProgressiveImage from 'react-progressive-bg-image';
+import React from 'react'
+import styled from 'styled-components'
+import Media from 'react-media'
+import ProgressiveImage from 'react-progressive-bg-image'
 // import landscapeX60 from '../statics/images/landscapeX60.jpg';
 // import landscape from '../statics/images/landscape.jpg';
 // import portraitX60 from '../statics/images/portraitX60.jpg';
@@ -21,17 +21,21 @@ window.matchMedia =
       matches: true, // Desktop First
       addListener: () => {},
       removeListener: () => {},
-    };
-  };
+    }
+  }
 
 const StyledProgressiveImage = styled(ProgressiveImage)`
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  top: 0; bottom: 0; right: 0; left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   background-position: center center;
   background-size: cover;
   z-index: -1;
-`;
+`
 
 const CoverImage = props => (
   <Media query={{ minWidth: 1024 }}>
@@ -42,8 +46,8 @@ const CoverImage = props => (
       />
     )}
   </Media>
-);
+)
 
-CoverImage.displayName = 'CoverImage';
+CoverImage.displayName = 'CoverImage'
 
-export default CoverImage;
+export default CoverImage

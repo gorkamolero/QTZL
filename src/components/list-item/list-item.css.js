@@ -4,7 +4,7 @@ import MEDIA from 'helpers/mediaTemplates'
 export const Item = styled.article`
   display: block;
   padding: 1.618rem 0;
-  padding: ${({size}) => () => {
+  padding: ${({ size }) => () => {
     switch (size) {
       case 'small':
         return '1rem'
@@ -48,7 +48,8 @@ export const Item = styled.article`
     height: 1px;
     background: var(--dark);
     position: absolute;
-    bottom: 0; left: 0;
+    bottom: 0;
+    left: 0;
   }
 
   &:hover:after {

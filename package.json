@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-universal",
+  "name": "qtzl",
   "license": "MIT",
-  "author": "Fabian Schultz <desk@fabianschultz.com>",
+  "author": "Gorka Molero <@gorkamolero>",
   "scripts": {
     "develop": "gatsby develop",
     "serve": "gatsby serve",

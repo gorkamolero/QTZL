@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import MEDIA from 'helpers/mediaTemplates';
+import styled from 'styled-components'
+import MEDIA from 'helpers/mediaTemplates'
 
 export const Container = styled.div`
   display: grid;
@@ -11,4 +11,4 @@ export const Container = styled.div`
   ${MEDIA.TABLET`
     display: block;
   `};
-`;
+`

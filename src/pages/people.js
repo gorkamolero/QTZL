@@ -17,11 +17,8 @@ const ArtistList = () => {
   const { qtzlctl } = useStaticQuery(graphql`
     query {
       qtzlctl: allAirtable(
-        filter: { table: { eq: "Artists" } },
-        sort: {
-          fields: [data___Notation],
-          order: DESC
-        }
+        filter: { table: { eq: "Artists" } }
+        sort: { fields: [data___Notation], order: DESC }
       ) {
         edges {
           node {
@@ -40,22 +37,15 @@ const ArtistList = () => {
     <>
       <Head pageTitle="Releases" />
       <>
-        {qtzlctl.edges.map(({
-          node: {
-            id,
-            data: {
-              Name,
-              Releases
-            }
-          }
-        }) => {
-          if(Releases !== null) return (
-            <ListItem size="small" key={id}>
-              <Link to={`/artists/${Name}`}>
-                <h2>{Name}</h2>
-              </Link>
-            </ListItem>
-          )
+        {qtzlctl.edges.map(({ node: { id, data: { Name, Releases } } }) => {
+          if (Releases !== null)
+            return (
+              <ListItem size="small" key={id}>
+                <Link to={`/artists/${Name}`}>
+                  <h2>{Name}</h2>
+                </Link>
+              </ListItem>
+            )
         })}
       </>
     </>

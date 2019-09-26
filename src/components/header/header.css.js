@@ -11,8 +11,12 @@ export const Container = styled.header`
     transition: color 0.2s ease;
     text-decoration: none;
 
-    &:hover { color: var(--color); }
-    &[aria-current] { font-weight: 400; }
+    &:hover {
+      color: var(--color);
+    }
+    &[aria-current] {
+      font-weight: 400;
+    }
   }
 
   filter: ${({ variant }) => () => {
