@@ -5,7 +5,7 @@ export const Player = styled(ReactPlayer)`
   max-width: 100%;
   @media (max-width: 640px) { width: 100% !important; }
   @media (min-width: 768px) {
-    opacity: .5;
+    opacity: .85;
     transition: opacity .25s ease;
     &:hover { opacity: 1 }
   }
