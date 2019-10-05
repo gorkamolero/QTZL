@@ -14,5 +14,5 @@ Follow our adventure at [connect.qtzl.space](https://connect.qtzl.space)
 
 <br>
 
-The site is designed and coded by Gorka using Gatsby, Styled components and Netlify.
+The site is designed and coded by Gorka using Gatsby, Styled components and Netlify. We use a fork of the Gatsby-universal theme
 The sourcecode is available at [github.com/gorkamolero/QTZL](https://github.com/gorkamolero/QTZL)
