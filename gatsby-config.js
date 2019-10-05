@@ -71,12 +71,6 @@ module.exports = {
         ]
       },
     },
-    'gatsby-plugin-extract-image-colors',
-    {
-      resolve: 'gatsby-plugin-mailchimp',
-      options: {
-        endpoint: process.env.MAILCHIMP
-      }
-    }
+    'gatsby-plugin-extract-image-colors'
   ],
 };
