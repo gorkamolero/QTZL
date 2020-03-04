@@ -16,16 +16,16 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `Releases`,
-            mapping: { 'Background' : `fileNode` },
+            mapping: { Background: `fileNode` },
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Artists`
+            tableName: `Artists`,
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Links`
-          }
+            tableName: `Links`,
+          },
         ],
       },
     },
@@ -58,19 +58,22 @@ module.exports = {
       options: {
         stylesProvider: {
           injectFirst: true,
-        }
-      }
+        },
+      },
     },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `dosis\:300,500,`,
-          `spectral\:300,500`
-        ]
+        fonts: [`dosis\:300,500,`, `spectral\:300,500`],
       },
     },
-    'gatsby-plugin-extract-image-colors'
+    'gatsby-plugin-extract-image-colors',
+    {
+      resolve: `gatsby-plugin-metricool`,
+      options: {
+        metricoolId: 'af8760cc23ff9c30fe02ec9fb0ba7fc',
+      },
+    },
   ],
-};
+}

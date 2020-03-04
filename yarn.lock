@@ -6157,6 +6157,11 @@ gatsby-plugin-material-ui@^2.1.6:
     clean-css "^4.2.1"
     postcss "^7.0.17"
 
+gatsby-plugin-metricool@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-metricool/-/gatsby-plugin-metricool-1.0.7.tgz#64f2ed6bf0d09f5a65c6d3f00d124bc820dd8bd8"
+  integrity sha512-0zQpRmosxAnql02Ap//Zz5wmApvVTBqivH6zIXqqyj2mM/HkaZbhR7kLN6jmoTI1krivmAHM9OLTo/EpX5/BKQ==
+
 gatsby-plugin-offline@^2.0.25:
   version "2.0.25"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.25.tgz#44839cd3ddb90c7478445c3a3c38fc8467b510a2"
