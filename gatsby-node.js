@@ -6,6 +6,7 @@ exports.createPages = ({graphql, actions}) => {
 
   const ReleaseTemplate = path.resolve('./src/templates/release.js')
   const ArtistTemplate = path.resolve('./src/templates/artist.js')
+  const Atlas = path.resolve('./src/templates/atlas.js')
 
   const releases = graphql(`
     {
@@ -72,12 +73,29 @@ exports.onCreateWebpackConfig = ({
   loaders,
   actions,
 }) => {
-  actions.setWebpackConfig({
+  const config = {
+    node: { fs: 'empty' },
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-      plugins: [new DirectoryNamedWebpackPlugin({
-        exclude: /node_modules/
-      })],
+      plugins: [
+        new DirectoryNamedWebpackPlugin({
+          exclude: /node_modules/,
+        }),
+      ],
     },
-  })
+  }
+
+  // when building HTML, window is not defined, so Leaflet causes the build to blow up
+  if (stage === "build-html") {
+    config.module = {
+      rules: [
+        {
+          test: /mapbox-gl/,
+          use: loaders.null(),
+        },
+      ],
+    }
+  }
+
+  actions.setWebpackConfig(config)
 }

@@ -49,7 +49,10 @@ export default createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%;
-    min-height: 100%;
+    height: 100%;
+  }
+  body {
+    height: 100%;
   }
 
   *, *:before, *:after {
@@ -76,6 +79,8 @@ export default createGlobalStyle`
     -webkit-font-feature-settings: "pnum";
     font-feature-settings: "pnum";
     font-variant-numeric: proportional-nums;
+
+    &.noBorder { --borderWidth: 0 }
 
     border-left: var(--borderWidth) solid var(--siteBorder);
     border-right: var(--borderWidth) solid var(--siteBorder);
@@ -154,4 +159,16 @@ export default createGlobalStyle`
   .read {
     max-width: var(--readable);
   }
+
+
+/*
+  .marker {
+    background-color: red;
+    background-image: url('mapbox-icon.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  } */
 `

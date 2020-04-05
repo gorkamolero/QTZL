@@ -2,7 +2,10 @@ import styled from 'styled-components'
 import ReactPlayer from 'react-player'
 
 export const Player = styled(ReactPlayer)`
+  padding: 2em 0 0;
   max-width: 100%;
+  width: 100% !important;
+  height: auto !important;
   @media (max-width: 640px) {
     width: 100% !important;
   }

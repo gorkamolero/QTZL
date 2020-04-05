@@ -6,6 +6,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     ...siteConfig,
+    mapboxToken: process.env.GATSBY_MAPBOX_API_TOKEN,
   },
   plugins: [
     {
@@ -21,6 +22,15 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `Artists`,
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `Atlas by QTZL`,
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `Marcos`,
+            mapping: { Image: `fileNode` },
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,

@@ -5,14 +5,19 @@ import Head from 'components/head'
 import Header from 'components/header'
 import GlobalStyle from 'global.css.js'
 
-const Layout = ({ data, children, variant }) => (
-  <>
-    <GlobalStyle />
-    <Head />
-    <Header variant={variant} title={data.site.siteMetadata.siteTitle} />
-    {children}
-  </>
-)
+const Layout = ({ data, children, variant, noBorder }) => {
+  React.useEffect(() => {
+    if (noBorder) document.body.classList.add('noBorder')
+  }, [noBorder])
+  return (
+    <>
+      <GlobalStyle />
+      <Head />
+      <Header variant={variant} title={data.site.siteMetadata.siteTitle} />
+      {children}
+    </>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

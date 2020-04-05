@@ -5,6 +5,9 @@ import { Container } from './nav.css'
 const Nav = () => (
   <Container>
     <ul>
+      {/* <li>
+        <Link to="/atlas">Atlas by QTZL</Link>
+      </li> */}
       <li>
         <Link to="/">Music</Link>
       </li>
@@ -15,7 +18,9 @@ const Nav = () => (
         <Link to="/about">About</Link>
       </li>
       <li>
-        <a href="https://connect.qtzl.space" rel="external">Connect</a>
+        <a href="https://connect.qtzl.space" rel="external">
+          Connect
+        </a>
       </li>
     </ul>
   </Container>
