@@ -28,7 +28,9 @@ export function useParallax() {
 const Marco = () => {
   const parallaxElement = useParallax()
 
-  const { marcos: { edges } } = useStaticQuery(graphql`
+  const {
+    marcos: { edges },
+  } = useStaticQuery(graphql`
     query {
       marcos: allAirtable(filter: { table: { eq: "Marcos" } }) {
         edges {
@@ -39,7 +41,7 @@ const Marco = () => {
                 localFiles {
                   childImageSharp {
                     fixed {
-                      ...GatsbyImageSharpFixed
+                      ...GatsbyImageSharpFixed_withWebp_tracedSVG
                     }
                   }
                 }
