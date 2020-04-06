@@ -5,9 +5,9 @@ import { Container } from './nav.css'
 const Nav = () => (
   <Container>
     <ul>
-      {/* <li>
+      <li style={{ visibility: 'hidden' }}>
         <Link to="/atlas">Atlas by QTZL</Link>
-      </li> */}
+      </li>
       <li>
         <Link to="/">Music</Link>
       </li>

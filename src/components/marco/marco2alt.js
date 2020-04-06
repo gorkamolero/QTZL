@@ -2,13 +2,13 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const Marco1 = ({width, height, getWidth, getHeight, getDepth}) => {
+const Marco2Alt = ({ width, height, getWidth, getHeight, getDepth }) => {
   const { marcos } = useStaticQuery(graphql`
     query {
       marcos: allAirtable(
         filter: {
-          table: { eq: "Marcos" },
-          data: { Marco: { eq: "Marco 1" } }
+          table: { eq: "Marcos" }
+          data: { Marco: { eq: "Marco 2 Alt" } }
         }
       ) {
         edges {
@@ -18,7 +18,7 @@ const Marco1 = ({width, height, getWidth, getHeight, getDepth}) => {
               Image {
                 localFiles {
                   childImageSharp {
-                    fluid(maxWidth: 1920) {
+                    fluid(maxWidth: 2500) {
                       ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                   }
@@ -40,12 +40,12 @@ const Marco1 = ({width, height, getWidth, getHeight, getDepth}) => {
 
   return (
     <>
-      {
-        marcos.edges.map((
+      {marcos.edges.map(
+        (
           {
             node: {
               id,
-              data: { Image, Depth, Width, Height, CoordsX, CoordsY, Name: Position },
+              data: { Image, Depth, Width, Height, Name: Position },
             },
           },
           i
@@ -64,31 +64,27 @@ const Marco1 = ({width, height, getWidth, getHeight, getDepth}) => {
           }
 
           return (
-            <div
-              key={id}
-              data-depth={getDepth(0, Depth)}
-              className="full"
-            >
+            <div key={id} data-depth={getDepth(0, Depth)} className="full">
               <Img
                 fluid={Image.localFiles[0].childImageSharp.fluid}
                 alt=""
-                className={`MarcoItem ${Position}`}
+                className={`MarcoItem Position ${Position}`}
                 style={{
                   position: 'absolute',
-                  width: getWidth(Width) + 20,
-                  height: getHeight(Height) + 20,
+                  width: getWidth(Width) + 10,
+                  height: getHeight(Height) + 10,
                 }}
                 imgStyle={{
-                  objectFit: isVertical ? "cover" : "contain",
-                  objectPosition: objectPosition()
+                  objectFit: isVertical ? 'cover' : 'cover',
+                  objectPosition: objectPosition(),
                 }}
               />
             </div>
           )
-        })
-      }
+        }
+      )}
     </>
   )
 }
 
-export default Marco1
+export default Marco2Alt

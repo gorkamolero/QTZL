@@ -7,6 +7,7 @@ import Box from 'components/box'
 import Map from 'components/map'
 import MapMarker from 'components/mapmarker'
 import Marco from 'components/marco'
+import Fade from 'react-reveal/Fade'
 
 
 const Atlas = () => {
@@ -67,17 +68,22 @@ const Atlas = () => {
       <Layout noBorder={true}>
         <Box>
           <Head />
-          <Map markers={markers} height="100%" width="100%" />
-          <Marco setIsLoaded={() => {
-            console.log('Vamonos')
-            setIsLoaded(true)
-          }} />
+          <Fade ssrFadeout top collapse when={!isLoaded}>
+            <LoadingScreen />
+          </Fade>
+
+          <Fade ssrFadeout top collapse when={isLoaded}>
+            <Map markers={markers} height="100%" width="100%" />
+          </Fade>
+
+          <Marco
+            setIsLoaded={() => {
+              console.log('Vamonos')
+              setTimeout(() => setIsLoaded(true), 2000)
+            }}
+          />
         </Box>
       </Layout>
-
-      {
-        isLoaded || <LoadingScreen />
-      }
     </>
   )
 }

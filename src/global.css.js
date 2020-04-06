@@ -162,7 +162,7 @@ export default createGlobalStyle`
 
 
 
-  .Marco1 {
+  .MarcoItem {
     position: fixed;
     &.top, &.bottom {
       left: 50vw;
@@ -173,8 +173,8 @@ export default createGlobalStyle`
     &.bottom { bottom: -10px; }
 
     &.left, &.right {
-      height: 100vh;
-      top: 50vh;
+      height: 110vh !important;
+      top: 50%;
       transform: translateY(-50%);
     }
     &.left { left: -10px; }

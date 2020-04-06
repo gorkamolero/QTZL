@@ -14,6 +14,7 @@ const FullContainer = styled.main`
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  z-index: 9999;
 `
 
 const Spinner = styled.div`
