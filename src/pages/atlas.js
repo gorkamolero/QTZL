@@ -25,7 +25,16 @@ const Atlas = () => {
             data {
               Nombre
               Imagen {
-                url
+                localFiles {
+                  colors {
+                    ...GatsbyImageColors
+                  }
+                  childImageSharp {
+                    fixed {
+                      ...GatsbyImageSharpFixed_withWebp_tracedSVG
+                    }
+                  }
+                }
               }
               Longitud
               Latitud
@@ -44,7 +53,7 @@ const Atlas = () => {
       console.log(data)
       return ({
         coordinates: [data.Longitud, data.Latitud],
-        element: <MapMarker title={data.Nombre} subtitle={data.Texto} bgPhoto={data.Imagen[0].url} {...data} />
+        element: <MapMarker title={data.Nombre} subtitle={data.Texto} colors={data.Imagen.localFiles[0].colors} bgImage={data.Imagen.localFiles[0].childImageSharp.fixed} {...data} />
       })
     })
 

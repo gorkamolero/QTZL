@@ -26,6 +26,7 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `Atlas by QTZL`,
+            mapping: { Imagen: `fileNode` },
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,
@@ -50,6 +51,13 @@ module.exports = {
       options: {
         name: `content`,
         path: `${__dirname}/content`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
       },
     },
     `gatsby-plugin-sharp`,

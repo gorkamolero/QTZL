@@ -3,6 +3,9 @@ import { Player } from 'components/qtzl/qtzl.css'
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { RingSpinner } from 'components/ringspinner'
+import BackgroundImage from 'gatsby-background-image'
+import CloseSVG from './cancel'
+import Color from 'color'
 
 const Container = styled.div`
   position: relative;
@@ -10,8 +13,7 @@ const Container = styled.div`
       rgba(0, 0, 0, 0) 30%,
       rgba(0, 0, 0, 0.2) 40%,
       rgba(0, 0, 0, 0.8) 80%
-    ),
-    url(${props => props.bgPhoto});
+    );
   background-position: center center;
   background-size: cover;
   border-radius: 8px;
@@ -65,6 +67,20 @@ const IconContainer = styled.div`
   color: white;
 `;
 
+const CloseIcon = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .5em;
+  cursor: pointer;
+  svg {
+    fill: white;
+    color: white;
+    width: 20px;
+    height: 20px;
+  }
+`
+
 const MapMarker = ({
   title,
   titleColor = "white",
@@ -76,21 +92,52 @@ const MapMarker = ({
   bottomIconName,
   bottomIconSize = 1,
   bgPhoto,
+  bgImage,
+  colors,
   URL
 }) => {
   const [reveal, setReveal] = React.useState(false)
+
+
+  const palette = {
+    main: colors ? Color(colors.vibrant): '',
+    shadow: colors ? Color(colors.vibrant).alpha(0.8).lighten(0.2): '',
+    background: colors ? Color(colors.vibrant).alpha(0.8): ''
+  }
+
+  console.log('COLORS', colors)
 
   if (!reveal) return (
     <div
       onMouseOver={() => setReveal(true)}
       onFocus={() => console.log('Setting')}
-      style={{ background: '#a5001f5ef', borderRadius: '100%'}}
+      style={{
+        borderRadius: '100%',
+        boxShadow: `${palette.shadow} 0px 0px 20px 20px`,
+        background: palette.background,
+      }}
+      className="glower"
     >
-      <RingSpinner hoverRef color="#a5001f" />
+      <RingSpinner hoverRef color={palette.main} />
     </div>
   )
   return (
-    <Container bgPhoto={bgPhoto}>
+    <Container>
+      <CloseIcon className="cancel" onClick={() => setReveal(false)}>
+        <CloseSVG />
+      </CloseIcon>
+      <BackgroundImage
+        fluid={bgImage}
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          left: 0,
+          top: 0,
+          zIndex: '-1'
+        }}
+      />
+
       {tag && (
         <TagContainer tagBg={tagBg} color={tagColor}>
           <TagText>{tag}</TagText>
