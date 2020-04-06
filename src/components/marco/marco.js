@@ -140,7 +140,7 @@ const AtlasLogo = styled.div`
   position: fixed;
   /* top: 6em; */
   left: 50vw;
-  transform: translate(-50%, 100%)
+  transform: translate(-45%,50%);
 `
 
 export default Marco
