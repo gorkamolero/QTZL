@@ -41,7 +41,7 @@ const Marco = () => {
               Image {
                 localFiles {
                   childImageSharp {
-                    fixed(width: 300) {
+                    fixed(width: 400) {
                       ...GatsbyImageSharpFixed_withWebp_tracedSVG
                     }
                   }
@@ -111,6 +111,9 @@ const Marco = () => {
                     left: getX(CoordsX),
                     top: getY(CoordsY),
                     // zIndex: Sort
+                  }}
+                  imgStyle={{
+                    objectFit: "contain",
                   }}
                 />
               </div>
