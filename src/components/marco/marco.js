@@ -54,6 +54,7 @@ const Marco = () => {
               Depth
               Sort
               Marco
+              Name
             }
           }
         }
@@ -72,7 +73,6 @@ const Marco = () => {
 
   return (
     <>
-      <Marco1 />
       <div
         ref={parallaxElement}
         id="scene"
@@ -85,12 +85,12 @@ const Marco = () => {
           height: '100%',
         }}
       >
-        {edges.sort((a, b) => b.node.data.Sort - a.node.data.Sort).map(
+        {edges.sort((a, b) => b.node.data.Sort - a.node.data.Sort).filter(el => !el.node.data.Marco.includes('1') ).map(
           (
             {
               node: {
                 id,
-                data: { Image, Depth, Width, Height, CoordsX, CoordsY, Sort, Marco },
+                data: { Image, Depth, Width, Height, CoordsX, CoordsY, Sort, Marco, Name: Position },
               },
             },
             i
@@ -114,12 +114,15 @@ const Marco = () => {
                   }}
                   imgStyle={{
                     objectFit: "contain",
+                    objectPosition: `center ${Position}`
                   }}
                 />
               </div>
             )
           }
         )}
+
+        <Marco1 getWidth={getWidth} getHeight={getHeight} getDepth={getDepth} width={width} height={height} />
 
         <div data-depth="0.05">
           <AtlasLogo className="atlas-logo">

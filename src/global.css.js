@@ -161,6 +161,29 @@ export default createGlobalStyle`
   }
 
 
+
+  .Marco1 {
+    position: fixed;
+    &.top, &.bottom {
+      left: 50vw;
+      transform: translateX(-50%);
+      width: 100vw;
+    }
+    &.top { top: -10px; }
+    &.bottom { bottom: -10px; }
+
+    &.left, &.right {
+      height: 100vh;
+      top: 50vh;
+      transform: translateY(-50%);
+    }
+    &.left { left: -10px; }
+    &.right { right: -10px; }
+  }
+  [data-depth].full {
+    width: 100%;
+    height: 100%;
+  }
 /*
   .marker {
     background-color: red;

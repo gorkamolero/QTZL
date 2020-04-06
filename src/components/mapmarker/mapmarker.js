@@ -71,13 +71,13 @@ const CloseIcon = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  padding: .5em;
+  padding: 1em;
   cursor: pointer;
   svg {
     fill: white;
     color: white;
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
   }
 `
 
