@@ -105,8 +105,6 @@ const MapMarker = ({
     background: colors ? Color(colors.vibrant).alpha(0.8): ''
   }
 
-  console.log('COLORS', colors)
-
   if (!reveal) return (
     <div
       onMouseOver={() => setReveal(true)}

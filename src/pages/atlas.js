@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Head from 'components/head'
-import ListItem from 'components/list-item'
+import LoadingScreen from 'components/loadingScreen'
 import Layout from 'components/layout'
 import Box from 'components/box'
 import Map from 'components/map'
@@ -10,6 +10,7 @@ import Marco from 'components/marco'
 
 
 const Atlas = () => {
+  const [isLoaded, setIsLoaded] = React.useState(false)
   const [markers, setMarkers] = React.useState(null)
   const { atlas } = useStaticQuery(graphql`
     query {
@@ -57,19 +58,27 @@ const Atlas = () => {
       })
     })
 
-    console.log('FX', markers)
     setMarkers(markers)
   }, [atlas])
 
   if (!markers) return null
   return (
-    <Layout noBorder={true}>
-      <Box>
-        <Head />
-        <Map markers={markers} height="100%" width="100%" />
-        <Marco />
-      </Box>
-    </Layout>
+    <>
+      <Layout noBorder={true}>
+        <Box>
+          <Head />
+          <Map markers={markers} height="100%" width="100%" />
+          <Marco setIsLoaded={() => {
+            console.log('Vamonos')
+            setIsLoaded(true)
+          }} />
+        </Box>
+      </Layout>
+
+      {
+        isLoaded || <LoadingScreen />
+      }
+    </>
   )
 }
 export default Atlas

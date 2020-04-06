@@ -8,14 +8,7 @@ import { useWindowSize } from '@react-hook/window-size/throttled'
 import AtlasPNG from 'images/Atlas.png'
 import Marco1 from './marco1'
 
-const AtlasLogo = styled.div`
-  position: fixed;
-  /* top: 6em; */
-  left: 50vw;
-  transform: translate(-50%, 100%)
-`
-
-export function useParallax() {
+export const useParallax = () => {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -26,8 +19,9 @@ export function useParallax() {
   return ref
 }
 
-const Marco = () => {
+const Marco = ({setIsLoaded}) => {
   const parallaxElement = useParallax()
+  const [loaded, setLoaded] = React.useState(0)
 
   const {
     marcos: { edges },
@@ -61,6 +55,12 @@ const Marco = () => {
       }
     }
   `)
+
+
+  React.useEffect(() => {
+    if (loaded > 100) setIsLoaded()
+  }, [loaded])
+
   const [width, height] = useWindowSize()
 
   const getDepth = (min, max) => Math.random() * (max - min) + min
@@ -76,7 +76,7 @@ const Marco = () => {
       <div
         ref={parallaxElement}
         id="scene"
-        data-relative-input="true"
+        // data-relative-input="true"
         style={{
           position: 'fixed',
           top: 0,
@@ -116,6 +116,8 @@ const Marco = () => {
                     objectFit: "contain",
                     objectPosition: `center ${Position}`
                   }}
+
+                  onLoad={() => setLoaded(loaded + 1)}
                 />
               </div>
             )
@@ -133,5 +135,12 @@ const Marco = () => {
     </>
   )
 }
+
+const AtlasLogo = styled.div`
+  position: fixed;
+  /* top: 6em; */
+  left: 50vw;
+  transform: translate(-50%, 100%)
+`
 
 export default Marco

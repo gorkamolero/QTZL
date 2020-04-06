@@ -110,7 +110,6 @@ const Map = ({
       layers.forEach(layer => {
         map.addLayer(layer)
       })
-      console.log('HOLA', markers)
 
       markers.forEach(marker => {
         const placeholder = document.createElement('div')
