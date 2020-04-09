@@ -35,13 +35,13 @@ function App(props) {
     },
   ])
 
-  const tracks = props.Audio.localFiles.map(track => ({
-    name: `#ATLAS${props.Num} - ${props.Nombre}`,
-    artist: props.Nombre,
-    url: track.publicURL,
-  }))
-
-  console.log('IN APP', tracks)
+  const tracks = [
+    {
+      name: `#ATLAS${props.Num} - ${props.Nombre}`,
+      artist: props.Nombre,
+      url: props.Audio.localFiles[0].publicURL,
+    },
+  ]
 
   const main = () => {
     return (
@@ -50,7 +50,7 @@ function App(props) {
           {...props}
           key="audio-component"
           tracks={tracks}
-          thread="main"
+          thread="worker"
         />
       </div>
     )

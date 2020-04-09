@@ -26,8 +26,8 @@ const Marco3 = ({setIsLoaded, getDepth, getWidth, getHeight, getX, getY}) => {
               Image {
                 localFiles {
                   childImageSharp {
-                    fixed(width: 10) {
-                      ...GatsbyImageSharpFixed_withWebp_tracedSVG
+                    fluid(maxWidth: 500, quality: 50) {
+                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                   }
                 }
@@ -66,7 +66,7 @@ const Marco3 = ({setIsLoaded, getDepth, getWidth, getHeight, getX, getY}) => {
               className={Marco}
             >
             <Img
-              fixed={Image.localFiles[0].childImageSharp.fixed}
+              fluid={Image.localFiles[0].childImageSharp.fluid}
               alt=""
               style={{
                 position: 'absolute',

@@ -119,25 +119,6 @@ exports.onCreateWebpackConfig = ({
         }),
       ],
     },
-    module: {
-      rules: [
-        {
-          test: /\.worker.js$/i,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: 'worker-loader',
-              options: {
-                publicPath: '/',
-              },
-            },
-          ],
-        },
-      ],
-    },
-    output: {
-      libraryTarget: 'this',
-    },
   }
 
   // when building HTML, window is not defined, so Leaflet causes the build to blow up
@@ -149,7 +130,7 @@ exports.onCreateWebpackConfig = ({
           use: loaders.null(),
         },
         {
-          test: /worker-loader/,
+          test: /\.worker.js$/i,
           use: loaders.null(),
         },
       ],
@@ -160,8 +141,12 @@ exports.onCreateWebpackConfig = ({
 
   const config = getConfig()
 
-  config.output.globalObject = 'this'
-  // config.output.publicPath = '/'
+  config.output = {
+    ...config.output,
+    publicPath: '/',
+    globalObject: 'this'
+  }
+
   config.module.rules = [
     ...config.module.rules,
     {

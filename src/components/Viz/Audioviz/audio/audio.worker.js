@@ -96,7 +96,11 @@ const preloadSong = () => {
   new Promise((resolve) => {
     // this.setState({ audioStreamData: { response: audioStreamData.response.clone(), contentLength: audioStreamData.response.headers.get('content-length') } })
     // console.log('worker stream data: ', audioStreamData)
-    const stream = readAudioStream(audioStreamData.response, audioStreamData.contentLength, { all: true, sec: 1, amount: 1050478 })
+    const stream = readAudioStream(
+      audioStreamData.response,
+      audioStreamData.contentLength,
+      { all: true, sec: 1, amount: 525239 }
+    )
     resolve(new Response(stream))
   }).then(response => {
     return response.arrayBuffer()

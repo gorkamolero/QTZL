@@ -36,7 +36,6 @@ export const pageQuery = graphql`
         Audio {
           localFiles {
             publicURL
-            absolutePath
           }
         }
         Num
