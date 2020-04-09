@@ -9,7 +9,6 @@ import MapMarker from 'components/mapmarker'
 import Marco from 'components/marco'
 import Fade from 'react-reveal/Fade'
 
-
 const Atlas = () => {
   const [isLoaded, setIsLoaded] = React.useState(false)
   const [markers, setMarkers] = React.useState(null)
@@ -41,7 +40,7 @@ const Atlas = () => {
               Longitud
               Latitud
               Texto
-              URL,
+              URL
               Num
             }
           }
@@ -52,12 +51,21 @@ const Atlas = () => {
 
   React.useEffect(() => {
     if (!atlas) return
-    const markers = atlas.edges.map(({node: { data }}) => {
+    const markers = atlas.edges.map(({ node: { data } }) => {
       console.log(data)
-      return ({
+      return {
         coordinates: [data.Longitud, data.Latitud],
-        element: <MapMarker Num={data.Num} title={data.Nombre} subtitle={data.Texto} colors={data.Imagen.localFiles[0].colors} bgImage={data.Imagen.localFiles[0].childImageSharp.fixed} {...data} />
-      })
+        element: (
+          <MapMarker
+            Num={data.Num}
+            title={data.Nombre}
+            subtitle={data.Texto}
+            colors={data.Imagen.localFiles[0].colors}
+            bgImage={data.Imagen.localFiles[0].childImageSharp.fixed}
+            {...data}
+          />
+        ),
+      }
     })
 
     setMarkers(markers)

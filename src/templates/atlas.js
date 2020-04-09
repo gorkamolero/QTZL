@@ -6,9 +6,7 @@ import { navigate } from 'gatsby'
 
 const Atlas = ({
   data: {
-    airtable: {
-      data,
-    },
+    airtable: { data },
   },
 }) => {
   return (
@@ -22,7 +20,10 @@ export default Atlas
 
 export const pageQuery = graphql`
   query atlasItemQuery($Nombre: String!) {
-    airtable(table: { eq: "Atlas by QTZL" }, data: { Nombre: { eq: $Nombre } }) {
+    airtable(
+      table: { eq: "Atlas by QTZL" }
+      data: { Nombre: { eq: $Nombre } }
+    ) {
       data {
         Nombre
         Imagen {

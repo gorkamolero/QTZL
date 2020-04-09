@@ -11,7 +11,15 @@ import { Player } from 'components/qtzl/qtzl.css'
 import { darkest } from 'constants/theme'
 
 const Release = ({ data }) => {
-  const { Info, Name, Notation, SoundCloud, Release, Video, Background } = data.airtable.data
+  const {
+    Info,
+    Name,
+    Notation,
+    SoundCloud,
+    Release,
+    Video,
+    Background,
+  } = data.airtable.data
   useEffect(() => {
     if (
       !Background ||

@@ -56,6 +56,8 @@ export const QTZLHeader = styled('header')`
       font-size: 0.8em;
       padding: 0.5rem;
       transition: opacity 0.15s ease;
+      z-index: 9999;
+      position: static;
       &:hover {
         opacity: 1;
       }
