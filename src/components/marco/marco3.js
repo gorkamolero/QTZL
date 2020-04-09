@@ -26,7 +26,7 @@ const Marco3 = ({setIsLoaded, getDepth, getWidth, getHeight, getX, getY}) => {
               Image {
                 localFiles {
                   childImageSharp {
-                    fixed(width: 400) {
+                    fixed(width: 10) {
                       ...GatsbyImageSharpFixed_withWebp_tracedSVG
                     }
                   }

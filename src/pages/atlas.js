@@ -41,7 +41,8 @@ const Atlas = () => {
               Longitud
               Latitud
               Texto
-              URL
+              URL,
+              Num
             }
           }
         }
@@ -55,7 +56,7 @@ const Atlas = () => {
       console.log(data)
       return ({
         coordinates: [data.Longitud, data.Latitud],
-        element: <MapMarker title={data.Nombre} subtitle={data.Texto} colors={data.Imagen.localFiles[0].colors} bgImage={data.Imagen.localFiles[0].childImageSharp.fixed} {...data} />
+        element: <MapMarker Num={data.Num} title={data.Nombre} subtitle={data.Texto} colors={data.Imagen.localFiles[0].colors} bgImage={data.Imagen.localFiles[0].childImageSharp.fixed} {...data} />
       })
     })
 

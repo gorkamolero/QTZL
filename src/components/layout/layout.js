@@ -5,15 +5,22 @@ import Head from 'components/head'
 import Header from 'components/header'
 import GlobalStyle from 'global.css.js'
 
-const Layout = ({ data, children, variant, noBorder }) => {
+
+const Layout = ({ data, children, noBorder, noHead, variant, bg }) => {
   React.useEffect(() => {
     if (noBorder) document.body.classList.add('noBorder')
-  }, [noBorder])
+
+    if (bg) {
+      document.documentElement.style.setProperty('--bgLight', bg.lightVibrant)
+      document.documentElement.style.setProperty('--bgDark', bg.vibrant)
+      document.documentElement.style.setProperty('--siteBorder', bg.darkVibrant)
+    }
+  }, [noBorder, bg])
   return (
     <>
       <GlobalStyle />
       <Head />
-      <Header variant={variant} title={data.site.siteMetadata.siteTitle} />
+      {noHead || <Header variant={variant} title={data.site.siteMetadata.siteTitle} />}
       {children}
     </>
   )

@@ -184,6 +184,43 @@ export default createGlobalStyle`
     width: 100%;
     height: 100%;
   }
+
+  .AudioViz {
+    .rest, .Player {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0; top: 0;
+    }
+    .Player {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rest {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .controls {
+      display: flex;
+    }
+    .song-info, .song-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 120%;
+      svg {
+        font-size: 140%;
+      }
+    }
+    .song-alt-link {
+      font-size: 80%;
+      opacity: .8;
+    }
+  }
 /*
   .marker {
     background-color: red;

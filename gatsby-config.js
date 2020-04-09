@@ -26,7 +26,7 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `Atlas by QTZL`,
-            mapping: { Imagen: `fileNode` },
+            mapping: { Imagen: `fileNode`, Audio: `fileNode` },
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,
@@ -100,5 +100,6 @@ module.exports = {
         metricoolId: 'af8760cc23ff9c30fe02ec9fb0ba7fc',
       },
     },
+    // 'gatsby-plugin-workerize-loader'
   ],
 }

@@ -1,7 +1,10 @@
 import React from "react";
-import { Player } from 'components/qtzl/qtzl.css'
+import { Link } from 'gatsby'
+import slug from 'slug'
+import { PlayArrow } from '@material-ui/icons'
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { keyframes } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import { RingSpinner } from 'components/ringspinner'
 import BackgroundImage from 'gatsby-background-image'
@@ -23,7 +26,7 @@ const Container = styled.div`
   align-items: flex-end;
   justify-content: center;
   padding: 20px;
-  max-width: ${props => (props.reveal ? '2000px' : '0px')};
+  max-width: ${props => (props.reveal ? '340px' : '0px')};
   max-height: ${props => (props.reveal ? '2000px' : '0px')};
 `
 
@@ -84,6 +87,52 @@ const CloseIcon = styled.div`
   }
 `
 
+
+export const QTZLPlay = styled(Link)`
+  background: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 108px;
+  animation: ${playAnimate} 2s linear infinite;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: ${props => Color(props.color.string())};
+
+  i {
+    color: #ffc107;
+    font-size: 102px;
+  }
+
+  svg {
+    width: 3em;
+    height: 3em;
+    fill: ${props => Color(props.color.string())};
+    color: ${props => Color(props.color.string())};
+  }
+`
+
+export const playAnimate = keyframes`
+  0%{
+    box-shadow: 0 0 0 0 rgba(255,193,7,0.7);
+  }
+  40%{
+    box-shadow: 0 0 0 50px rgba(255,193,7,0);
+  }
+  80%{
+    box-shadow: 0 0 0 50px rgba(255,193,7,0);
+  }
+  100%{
+    box-shadow: 0 0 0 rgba(255,193,7,0);
+  }
+`
+
 const MapMarker = ({
   title,
   titleColor = "white",
@@ -97,7 +146,8 @@ const MapMarker = ({
   bgPhoto,
   bgImage,
   colors,
-  URL
+  URL,
+  Num
 }) => {
   const [reveal, setReveal] = React.useState(false)
 
@@ -107,6 +157,8 @@ const MapMarker = ({
     shadow: colors ? Color(colors.vibrant).alpha(0.8).lighten(0.2): '',
     background: colors ? Color(colors.vibrant).alpha(0.8): ''
   }
+
+  console.log(palette)
   return (
     <>
       {reveal || (
@@ -118,7 +170,7 @@ const MapMarker = ({
             boxShadow: `${palette.shadow} 0px 0px 20px 20px`,
             background: palette.background,
             width: 30,
-            height: 30
+            height: 30,
           }}
           className="glower"
         >
@@ -156,8 +208,15 @@ const MapMarker = ({
                   <Subtitle color={subtitleColor}>{subtitle}</Subtitle>
                 </>
               )}
-              {URL && <Player className={Player} url={URL} />}
+              <QTZLPlay
+                to={`/atlas/${Num}-${slug(title)}`}
+                style={{ color: palette.main }}
+                color={palette.main}
+              >
+                <PlayArrow />
+              </QTZLPlay>
             </ContentColumn>
+
             {bottomIconName && (
               <IconContainer>
                 <i className={`${bottomIconName} fa-${bottomIconSize}x`} />
@@ -166,7 +225,6 @@ const MapMarker = ({
           </Content>
         </Container>
       </Fade>
-
     </>
   )
 };

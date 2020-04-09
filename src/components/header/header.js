@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import { Container } from './header.css'
 import Logo from 'components/logo'
 import Nav from 'components/header/nav'
+import AtlasNav from 'components/header/nav/atlasnav'
 
 const Header = ({ title, variant }) => (
   <Container>
@@ -11,7 +12,9 @@ const Header = ({ title, variant }) => (
       <Logo />
     </Link>
 
-    <Nav />
+    {!variant ? (<Nav />) : null}
+
+    {variant === 'atlas' && <AtlasNav />}
   </Container>
 )
 
