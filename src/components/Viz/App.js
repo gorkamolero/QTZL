@@ -11,6 +11,7 @@ import legendsNeverDie from './Audioviz/assets/music/legends-never-die.mp3'
 import shortLegendsNeverDie from './Audioviz/assets/music/short-legends-never-die.mp3'
 
 function App(props) {
+  console.log('IN APP', props)
 
   const [oldTracks, setTracks] = React.useState([
     {

@@ -104,6 +104,7 @@ export const QTZLPlay = styled(Link)`
   justify-content: center;
 
   color: ${props => Color(props.color.string())};
+  color: rgba(255, 255, 255, .7)
 
   i {
     color: #ffc107;
@@ -115,6 +116,8 @@ export const QTZLPlay = styled(Link)`
     height: 3em;
     fill: ${props => Color(props.color.string())};
     color: ${props => Color(props.color.string())};
+    color: rgba(255, 255, 255, .7)
+    fill: rgba(255, 255, 255, .7)
   }
 `
 

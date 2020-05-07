@@ -1,3 +1,4 @@
+/*eslint-disable no-irregular-whitespace*/
 import React from 'react'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -63,6 +64,7 @@ const Marco1 = ({width, height, getWidth, getHeight, getDepth}) => {
             if (isRight) return 'center right'
           }
 
+          if (!Image || !Image.localFiles) return null
           return (
             <div
               key={id}

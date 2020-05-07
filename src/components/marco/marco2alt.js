@@ -2,7 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const Marco2Alt = ({ width, height, getWidth, getHeight, getDepth }) => {
+const Marco2Alt = ({ getWidth, getHeight, getDepth }) => {
   const { marcos } = useStaticQuery(graphql`
     query {
       marcos: allAirtable(
@@ -63,6 +63,7 @@ const Marco2Alt = ({ width, height, getWidth, getHeight, getDepth }) => {
             if (isRight) return 'center right'
           }
 
+          if (!Image || !Image.localFiles) return null
           return (
             <div key={id} data-depth={getDepth(0, Depth)} className="full">
               <Img

@@ -3,15 +3,22 @@ import { graphql } from 'gatsby'
 import Layout from 'components/layout'
 import Viz from 'components/Viz'
 import { navigate } from 'gatsby'
+import { useNetworkStatus } from 'react-adaptive-hooks/network'
+import { Player } from 'components/qtzl/qtzl.css'
 
 const Atlas = ({
   data: {
     airtable: { data },
   },
 }) => {
+  const { connection } = useNetworkStatus()
   return (
     <Layout bg={data.Imagen.localFiles[0].colors} variant="atlas">
-      {typeof window === 'object' && <Viz {...data} />}
+      {['slow-2g', '2g', '3g'].includes(connection) ? (
+        <Player url={data.URL} />
+      ) : (
+        typeof window === 'object' && data.Audio.localFiles && <Viz {...data} />
+      )}
     </Layout>
   )
 }

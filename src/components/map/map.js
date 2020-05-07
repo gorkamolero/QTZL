@@ -77,7 +77,7 @@ const Map = ({
 
     const map = new mapboxgl.Map({
       container: mapNode.current,
-      style: `mapbox://styles/gorkamolero/ck8hm088d0i3y1iohvu0dywky`,
+      style: `mapbox://styles/gorkamolero/ck9wjhvrl0idw1iou9mdwfeqd`,
       center: mapCenter,
       zoom: mapZoom,
       minZoom,

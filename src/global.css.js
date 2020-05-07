@@ -49,10 +49,13 @@ export default createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%;
-    height: 100%;
+    background: var(--darkest);
+    min-height: 100%;
+    /* height: 100%; */
   }
   body {
-    height: 100%;
+    /* height: 100%; */
+    min-height: 100vh;
   }
 
   *, *:before, *:after {
