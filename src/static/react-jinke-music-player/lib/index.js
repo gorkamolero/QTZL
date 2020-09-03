@@ -1252,7 +1252,7 @@ var ReactJkMusicPlayer = /*#__PURE__*/function (_PureComponent) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "addMatchMediaListener", function (query, handler) {
-      var media = window.matchMedia(query);
+      var media = typeof window !== `undefined` ? window.matchMedia(query) : null;
       handler(media);
 
       if ('addEventListener' in media) {
@@ -2205,7 +2205,7 @@ _defineProperty(ReactJkMusicPlayer, "defaultProps", {
   defaultPlayIndex: 0,
   // 默认播放索引
   getContainer: function getContainer() {
-    return document.body;
+    return typeof document !== `undefined` ? document.body : null;
   },
   // 播放器挂载的节点
   autoHiddenCover: false,
