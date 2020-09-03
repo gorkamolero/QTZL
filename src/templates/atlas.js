@@ -23,8 +23,7 @@ const Atlas = ({
     airtable: { data },
   },
 }) => {
-  const { connection } = useNetworkStatus()
-  console.log(data)
+  const isServer = typeof window === 'undefined'
   return (
     <Layout bg={data.Imagen.localFiles[0].colors} variant="atlas">
       {/* {['slow-2g', '2g', '3g'].includes(connection) ? (
@@ -34,17 +33,19 @@ const Atlas = ({
       )} */}
       {/* <Player url={data.URL} /> */}
 
-      <ReactJkMusicPlayer
-        {...JinkeOptions}
-        audioLists={[
-          {
-            musicSrc: data.Audio.localFiles[0].publicURL,
-            name: `ATLAS${data.Num} by QTZL - ${data.Nombre}`,
-            singer: `ATLAS${data.Num} by QTZL - ${data.Nombre}`,
-            cover: data.Imagen.localFiles[0].childImageSharp.fixed.src,
-          },
-        ]}
-      />
+      {isServer || (
+        <ReactJkMusicPlayer
+          {...JinkeOptions}
+          audioLists={[
+            {
+              musicSrc: data.Audio.localFiles[0].publicURL,
+              name: `ATLAS${data.Num} by QTZL - ${data.Nombre}`,
+              singer: `ATLAS${data.Num} by QTZL - ${data.Nombre}`,
+              cover: data.Imagen.localFiles[0].childImageSharp.fixed.src,
+            },
+          ]}
+        />
+      )}
     </Layout>
   )
 }

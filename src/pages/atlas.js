@@ -7,11 +7,14 @@ import Box from 'components/box'
 import Map from 'components/map'
 import MapMarker from 'components/mapmarker'
 import Marco from 'components/marco'
+import MarcoMobile from 'components/marcomobile/marco'
 import Fade from 'react-reveal/Fade'
+import useMedia from 'use-media'
 
 const Atlas = () => {
   const [isLoaded, setIsLoaded] = React.useState(false)
   const [markers, setMarkers] = React.useState(null)
+  const isPortrait = useMedia('all and (orientation: portrait)')
   const { atlas } = useStaticQuery(graphql`
     query {
       atlas: allAirtable(
@@ -49,6 +52,9 @@ const Atlas = () => {
     }
   `)
 
+
+  console.log('PORTRAIT', isPortrait)
+
   React.useEffect(() => {
     if (!atlas) return
     const markers = atlas.edges.map(({ node: { data } }) => {
@@ -85,12 +91,21 @@ const Atlas = () => {
             <Map markers={markers} height="100%" width="100%" />
           </Fade>
 
-          <Marco
-            setIsLoaded={() => {
-              console.log('Vamonos')
-              setTimeout(() => setIsLoaded(true), 2000)
-            }}
-          />
+          {!isPortrait ? (
+            <Marco
+              setIsLoaded={() => {
+                console.log('Vamonos')
+                setTimeout(() => setIsLoaded(true), 2000)
+              }}
+            />
+          ) : (
+            <MarcoMobile
+              setIsLoaded={() => {
+                console.log('Vamonos')
+                setTimeout(() => setIsLoaded(true), 2000)
+              }}
+            />
+          )}
         </Box>
       </Layout>
     </>

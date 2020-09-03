@@ -123,13 +123,20 @@ const Map = ({
           .addTo(map);
       })
 
-      if (markers) {
+      if (markers && markers.length > 1) {
+        console.log('MARKERS', markers)
         const coordinator = markers.map(marker => marker.coordinates)
         const line = turf.lineString(coordinator)
         const bbox = turf.bbox(line)
         const padding = 300
         map.fitBounds(bbox, {
           padding: {top: padding, bottom: padding, left: padding, right: padding}
+        })
+      }
+
+      if (markers && markers.length === 1) {
+        map.flyTo({
+          center: markers[0].coordinates,
         })
       }
     })

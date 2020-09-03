@@ -1880,6 +1880,8 @@ var ReactJkMusicPlayer = /*#__PURE__*/function (_PureComponent) {
       }, toggle ? locale.closeText : locale.openText))), DestroyComponent));
 
       var container = getContainer() || null;
+      // here
+      if (typeof document !== `undefined`) container = getContainer() || document.body;
       var audioTitle = this.getAudioTitle();
 
       if (isPlayDestroyed) {
