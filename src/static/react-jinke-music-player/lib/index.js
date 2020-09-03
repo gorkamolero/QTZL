@@ -1879,7 +1879,7 @@ var ReactJkMusicPlayer = /*#__PURE__*/function (_PureComponent) {
         className: "music-player-controller-setting"
       }, toggle ? locale.closeText : locale.openText))), DestroyComponent));
 
-      var container = getContainer() || document.body;
+      var container = getContainer() || null;
       var audioTitle = this.getAudioTitle();
 
       if (isPlayDestroyed) {
