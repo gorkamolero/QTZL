@@ -234,4 +234,8 @@ export default createGlobalStyle`
     border-radius: 50%;
     cursor: pointer;
   } */
+
+  .react-jinke-music-player-mobile-header {
+    display: none !important;
+  }
 `
