@@ -47,7 +47,7 @@ const Marco = ({setIsLoaded}) => {
         <div
           style={{
             position: 'fixed',
-            bottom: 0,
+            bottom: '-10px',
             width: '100%',
             left: '50%',
             transform: 'translateX(-50%)',
