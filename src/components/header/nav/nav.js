@@ -5,7 +5,7 @@ import { Container } from './nav.css'
 const Nav = () => (
   <Container>
     <ul>
-      <li style={{ visibility: 'hidden' }}>
+      <li>
         <Link to="/atlas">Atlas by QTZL</Link>
       </li>
       <li>
