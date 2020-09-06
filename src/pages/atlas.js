@@ -56,6 +56,7 @@ const Atlas = () => {
   console.log('PORTRAIT', isPortrait)
 
   React.useEffect(() => {
+    setTimeout(() => setIsLoaded(true), 2000)
     if (!atlas) return
     const markers = atlas.edges.map(({ node: { data } }) => {
       console.log(data)
@@ -73,6 +74,8 @@ const Atlas = () => {
         ),
       }
     })
+
+
 
     setMarkers(markers)
   }, [atlas])
