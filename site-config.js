@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   siteTitle: `QTZL`,
-  siteTitleShort: `GatsbyU`,
+  siteTitleShort: `QTZL`,
   siteDescription: `A transatlantic musical collective`,
   siteUrl: `https://qtzlctl.com`,
   themeColor: `#000`,

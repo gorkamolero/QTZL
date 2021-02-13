@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import slug from 'slug'
 import { PlayArrow } from '@material-ui/icons'
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { keyframes } from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import { RingSpinner } from 'components/ringspinner'
@@ -73,6 +73,21 @@ const IconContainer = styled.div`
   color: white;
 `;
 
+export const playAnimate = keyframes`
+  0%{
+    box-shadow: 0 0 0 0 rgba(255,193,7,0.7);
+  }
+  40%{
+    box-shadow: 0 0 0 50px rgba(255,193,7,0);
+  }
+  80%{
+    box-shadow: 0 0 0 50px rgba(255,193,7,0);
+  }
+  100%{
+    box-shadow: 0 0 0 rgba(255,193,7,0);
+  }
+`
+
 const CloseIcon = styled.div`
   position: absolute;
   top: 0;
@@ -103,8 +118,10 @@ export const QTZLPlay = styled(Link)`
   align-items: center;
   justify-content: center;
 
-  color: ${props => Color(props.color.string())};
-  color: rgba(255, 255, 255, .7)
+  color: rgba(255, 255, 255, .7);
+  ${props => props.color && css`
+    color: ${props => props.color && Color(props.color).string()};
+  `}
 
   i {
     color: #ffc107;
@@ -114,25 +131,12 @@ export const QTZLPlay = styled(Link)`
   svg {
     width: 3em;
     height: 3em;
-    fill: ${props => Color(props.color.string())};
-    color: ${props => Color(props.color.string())};
-    color: rgba(255, 255, 255, .7)
-    fill: rgba(255, 255, 255, .7)
-  }
-`
-
-export const playAnimate = keyframes`
-  0%{
-    box-shadow: 0 0 0 0 rgba(255,193,7,0.7);
-  }
-  40%{
-    box-shadow: 0 0 0 50px rgba(255,193,7,0);
-  }
-  80%{
-    box-shadow: 0 0 0 50px rgba(255,193,7,0);
-  }
-  100%{
-    box-shadow: 0 0 0 rgba(255,193,7,0);
+    color: rgba(255, 255, 255, .7);
+    fill: rgba(255, 255, 255, .7);
+    ${props => props.color && css`
+      fill: ${props => props.color && Color(props.color).string()};
+      color: ${props => props.color && Color(props.color).string()};
+    `}
   }
 `
 
@@ -154,14 +158,12 @@ const MapMarker = ({
 }) => {
   const [reveal, setReveal] = React.useState(false)
 
-
   const palette = {
-    main: colors ? Color(colors.vibrant): '',
-    shadow: colors ? Color(colors.vibrant).alpha(0.8).lighten(0.2): '',
-    background: colors ? Color(colors.vibrant).alpha(0.8): ''
+    main: colors ? colors.vibrant : 'rgba(0,0,0,.5)',
+    shadow: colors ? Color(colors.vibrant).alpha(0.8).lighten(0.2) : '',
+    background: colors ? Color(colors.vibrant).alpha(0.8) : ''
   }
 
-  console.log(palette)
   return (
     <>
       {reveal || (

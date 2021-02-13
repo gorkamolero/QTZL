@@ -4,7 +4,7 @@ import Layout from 'components/layout'
 
 const NotFound = () => (
   <Layout>
-    <Box>Not found.</Box>
+    <Box>Not found</Box>
   </Layout>
 )
 

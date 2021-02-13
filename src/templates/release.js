@@ -24,9 +24,10 @@ const Release = ({ data }) => {
     if (
       !Background ||
       !Background.localFiles ||
+      !Background.localFiles[0] ||
       !Background.localFiles[0].colors
-    )
-      return
+    ) return
+
     document.documentElement.style.setProperty(
       '--siteBorder',
       Background.localFiles[0].colors.vibrant
@@ -37,13 +38,19 @@ const Release = ({ data }) => {
     }
   }, [])
 
+  if (
+    !Background ||
+    !Background.localFiles ||
+    !Background.localFiles[0]
+  ) return null
+
+
   return (
     <BackgroundImage
       Tag="section"
       fluid={Background.localFiles[0].childImageSharp.fluid}
       style={{ minHeight: '100vh' }}
       className="overlayed"
-      // backgroundColor={`#040e18`}
     >
       <Overlay />
       <Layout variant="dark">
