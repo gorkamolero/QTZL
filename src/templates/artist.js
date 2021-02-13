@@ -14,7 +14,7 @@ const Artist = ({
   },
 }) => (
   <Layout>
-    <Box className="read">
+    <Box className="read" style={{ maxWidth: '80ch' }}>
       <Title as="h1" size="large">
         {Name}
       </Title>

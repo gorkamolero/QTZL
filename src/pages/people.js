@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
+import slug from 'slug'
 import Head from 'components/head'
 import ListItem from 'components/list-item'
 import Layout from 'components/layout'
@@ -41,7 +42,7 @@ const ArtistList = () => {
           if (Releases !== null)
             return (
               <ListItem size="small" key={id}>
-                <Link to={`/artists/${Name}`}>
+                <Link to={`/artists/${slug(Name)}`}>
                   <h2>{Name}</h2>
                 </Link>
               </ListItem>
