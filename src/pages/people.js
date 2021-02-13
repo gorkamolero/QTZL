@@ -42,7 +42,7 @@ const ArtistList = () => {
           if (Releases !== null)
             return (
               <ListItem size="small" key={id}>
-                <Link to={`/artists/${slug(Name)}`}>
+                <Link to={`/artists/${slug(Name).toLowerCase()}`}>
                   <h2>{Name}</h2>
                 </Link>
               </ListItem>
