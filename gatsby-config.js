@@ -101,20 +101,6 @@ module.exports = {
         metricoolId: 'af8760cc23ff9c30fe02ec9fb0ba7fc',
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: "qtzl",
-        short_name: "qtzl",
-        start_url: "/",
-        background_color: "#c59736",
-        theme_color: "#c59736",
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: "standalone",
-        icon: "src/images/qtzl_logo.svg" // This path is relative to the root of the site.
-      }
-    }
     // 'gatsby-plugin-workerize-loader'
   ],
 }
