@@ -57,7 +57,7 @@ exports.createPages = ({graphql, actions}) => {
       Name,
     } } }) => {
       createPage({
-        path: `artists/${Name}`,
+        path: `artists/${slug(Name)}`,
         component: ArtistTemplate,
         context: { Name }
       })
